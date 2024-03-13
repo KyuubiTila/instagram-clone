@@ -1,0 +1,10 @@
+db:
+  # connection:
+  host: 'localhost'
+  port: 5432
+  username: postgres
+  password: 'password123'
+  synchronize: false
+
+jwt:
+  secret: 'topsecret51'
