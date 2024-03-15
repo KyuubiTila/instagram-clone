@@ -67,7 +67,7 @@ export function SideBar(): JSX.Element {
   const bottomMenuItems: MenuItemData[] = [
     {
       icon: ThreadSVG,
-      label: 'Thread',
+      label: 'Threads',
       href: '/',
     },
     {
