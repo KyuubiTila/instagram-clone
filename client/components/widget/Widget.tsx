@@ -70,7 +70,7 @@ const Widgets = (): JSX.Element => {
                   {user.login.username}
                 </p>
               </div>
-              <Button className="text-black  rounded-2xl bg-white ml-auto hover:text-white">
+              <Button className="text-black  rounded-2xl bg-white ml-auto hover:bg-gray-400 hover:text-white">
                 Follow
               </Button>
             </div>
