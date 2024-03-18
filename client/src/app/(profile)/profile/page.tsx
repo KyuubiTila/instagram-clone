@@ -1,12 +1,25 @@
+'use client';
+import ProfileMore from '@/components/modals/ProfileMore';
+import StoryModal from '@/components/modals/StoryModal';
 import FollowingSVG from '@/components/svgComps/FollowingSVG';
+import LinkSVG from '@/components/svgComps/LinkSVG';
 import MoreSVG from '@/components/svgComps/MoreSVG';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const Profile = () => {
+  const openStoryModal = () => {
+    const modalCheckbox = document.getElementById(
+      'my_modal_8'
+    ) as HTMLInputElement;
+    if (modalCheckbox) {
+      modalCheckbox.checked = !modalCheckbox.checked;
+    }
+  };
+
   return (
-    <div className="h-full border-gray-200 border rounded-xl">
+    <div className="h-full border-gray-200  lg:mx-24">
       <div className="flex p-4 ">
         <div className="mt-2">
           <Image
@@ -18,8 +31,8 @@ const Profile = () => {
           />
         </div>
 
-        <div>
-          <div className="flex text-left pl-4 justify-between mt-2 ">
+        <div className="w-full lg:ml-12 ">
+          <div className=" flex text-left pl-4 justify-between mt-2 ">
             <div className=" flex text-center text-gray-700 text-2xl mr-8 ">
               Tunde
             </div>
@@ -28,14 +41,20 @@ const Profile = () => {
                 Edit Profile
               </button>
               <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
-                Follow
+                Message
               </button>
               <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
                 <FollowingSVG />
               </button>
-              <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
+              <label
+                htmlFor="my_modal_7"
+                className="btn bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl"
+              >
                 <MoreSVG />
-              </button>
+              </label>
+
+              <ProfileMore />
+              <StoryModal />
             </div>
           </div>
 
@@ -51,30 +70,33 @@ const Profile = () => {
             </span>
           </div>
 
-          <div className="text-left pl-4 pt-3">
+          <div className="text-left pl-4 my-1">
             <span className="text-lg font-bold text-gray-700 mr-2">
               kyuubiTila
             </span>
           </div>
 
           <div className="text-left pl-4 ">
-            <p className="text-base font-medium  mr-2">
+            <p className="text-base font-medium my-1">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
               voluptas praesentium
             </p>
-            <Link
-              href={'https://github.com/KyuubiTila'}
-              target="_blank"
-              className="text-base font-medium text-blue-700 mr-2 "
-            >
-              https://github.com/KyuubiTila
-            </Link>
+            <div className="flex items-center">
+              <LinkSVG />
+              <Link
+                href={'https://github.com/KyuubiTila'}
+                target="_blank"
+                className="text-base font-medium text-blue-700 ml-2 "
+              >
+                https://github.com/KyuubiTila
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="flex justify-between px-4 py-2 m-2">
-        <div className="text-center ">
+        <div className="text-center" onClick={openStoryModal}>
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -87,7 +109,7 @@ const Profile = () => {
           <h1 className="pt-2 font-serif font-semibold text-gray-900">Fun</h1>
         </div>
 
-        <div className="text-center ">
+        <div className="text-center " onClick={openStoryModal}>
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -102,7 +124,7 @@ const Profile = () => {
           </h1>
         </div>
 
-        <div className="text-center ">
+        <div className="text-center " onClick={openStoryModal}>
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -115,7 +137,7 @@ const Profile = () => {
           <h1 className="pt-2 font-serif font-semibold text-gray-900">Food</h1>
         </div>
 
-        <div className="text-center ">
+        <div className="text-center " onClick={openStoryModal}>
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -130,7 +152,7 @@ const Profile = () => {
           </h1>
         </div>
 
-        <div className="text-center ">
+        <div className="text-center " onClick={openStoryModal}>
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}

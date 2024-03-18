@@ -60,7 +60,7 @@ export function SideBar(): JSX.Element {
     {
       icon: ProfilePicSVG,
       label: 'Profile',
-      href: '/',
+      href: '/profile',
     },
   ];
 
