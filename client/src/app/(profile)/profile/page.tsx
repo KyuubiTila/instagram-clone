@@ -37,9 +37,12 @@ const Profile = () => {
               Tunde
             </div>
             <div className="flex ">
-              <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
-                Edit Profile
-              </button>
+              <Link
+                href="/profile/edit-profile"
+                className=" bg-gray-300 flex mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl"
+              >
+                <button>Edit Profile</button>
+              </Link>
               <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
                 Message
               </button>

@@ -1,7 +1,8 @@
 import React from 'react';
+import EditProfile from '../../../../../components/forms/EditProfile';
 
-const page = () => {
-  return <div>page</div>;
+const Page = () => {
+  return <EditProfile />;
 };
 
-export default page;
+export default Page;
