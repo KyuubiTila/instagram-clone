@@ -99,7 +99,10 @@ const Profile = () => {
       </div>
 
       <div className="flex justify-between px-4 py-2 m-2">
-        <div className="text-center" onClick={openStoryModal}>
+        <div
+          className="text-center hover:cursor-pointer"
+          onClick={openStoryModal}
+        >
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -112,7 +115,10 @@ const Profile = () => {
           <h1 className="pt-2 font-serif font-semibold text-gray-900">Fun</h1>
         </div>
 
-        <div className="text-center " onClick={openStoryModal}>
+        <div
+          className="text-center hover:cursor-pointer "
+          onClick={openStoryModal}
+        >
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -127,7 +133,10 @@ const Profile = () => {
           </h1>
         </div>
 
-        <div className="text-center " onClick={openStoryModal}>
+        <div
+          className="text-center hover:cursor-pointer "
+          onClick={openStoryModal}
+        >
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -140,7 +149,10 @@ const Profile = () => {
           <h1 className="pt-2 font-serif font-semibold text-gray-900">Food</h1>
         </div>
 
-        <div className="text-center " onClick={openStoryModal}>
+        <div
+          className="text-center hover:cursor-pointer "
+          onClick={openStoryModal}
+        >
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}
@@ -155,7 +167,10 @@ const Profile = () => {
           </h1>
         </div>
 
-        <div className="text-center " onClick={openStoryModal}>
+        <div
+          className="text-center hover:cursor-pointer "
+          onClick={openStoryModal}
+        >
           <div className="h-24 w-24 rounded-full overflow-hidden border border-gray-400 shadow-xl mx-auto">
             <Image
               height={34}

@@ -12,7 +12,7 @@ import NewPostSVG from '../svgComps/NewPostSVG';
 import ProfilePicSVG from '../svgComps/ProfilePicSVG';
 import ThreadSVG from '../svgComps/ThreadSVG';
 import MoreSVG from '../svgComps/MoreSVG';
-import InstagramLogoSVG from '../svgComps/InstagramLogoSVG';
+import Link from 'next/link';
 
 interface MenuItemData {
   icon: React.ComponentType<any>;
@@ -64,26 +64,15 @@ export function SideBar(): JSX.Element {
     },
   ];
 
-  const bottomMenuItems: MenuItemData[] = [
-    {
-      icon: ThreadSVG,
-      label: 'Threads',
-      href: '/',
-    },
-    {
-      icon: MoreSVG,
-      label: 'More',
-      href: '/',
-    },
-  ];
-
   return (
     <div className="flex h-screen w-auto md:w-60 p-4 md:shadow-xl flex-col justify-between">
       <div className="mt-4">
-        <div className="cursor-pointer select-none">
-          <InstagramSVG disableDarkMode={false} white={false} />
-        </div>
-        <div className="flex cursor-pointer relative">
+        <Link href="/">
+          <div className="cursor-pointer select-none">
+            <InstagramSVG disableDarkMode={false} white={false} />
+          </div>
+        </Link>
+        <div className="flex  relative">
           <div className="flex flex-col">
             {topMenuItems.map((item) => (
               <MenuItem
@@ -96,16 +85,16 @@ export function SideBar(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="flex cursor-pointer relative">
+      <div className="flex  relative ">
         <div className="flex flex-col">
-          {bottomMenuItems.map((item) => (
-            <MenuItem
-              key={item.label}
-              icon={item.icon}
-              label={item.label}
-              href={item.href}
-            />
-          ))}
+          <div className="font-serif  mt-1 flex gap-5 text-black w-full items-center px-4 p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
+            <ThreadSVG />
+            <p className="hidden md:inline-flex ">Threads</p>
+          </div>
+          <div className="font-serif  mt-1 flex gap-5 text-black w-full items-center px-4 p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
+            <MoreSVG />
+            <p className="hidden md:inline-flex ">More</p>
+          </div>
         </div>
       </div>
     </div>

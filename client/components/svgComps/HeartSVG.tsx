@@ -8,6 +8,7 @@ const HeartSVG = () => {
       height="24"
       viewBox="0 0 32 32"
       id="heart"
+      strokeWidth={1.5}
     >
       <path
         fill="#1C1C1C"

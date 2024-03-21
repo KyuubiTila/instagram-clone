@@ -9,6 +9,7 @@ const ReelSVG = () => {
       fill="none"
       viewBox="0 0 24 24"
       id="reel"
+      strokeWidth={1.5}
     >
       <rect
         width="20"

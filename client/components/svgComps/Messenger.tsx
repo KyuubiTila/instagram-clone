@@ -8,6 +8,7 @@ const Messenger = () => {
       height="24"
       fill="none"
       id="messenger"
+      strokeWidth={1.5}
     >
       <path
         stroke="#000"

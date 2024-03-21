@@ -11,9 +11,7 @@ const MenuItem = ({ icon: Icon, label, href }) => {
   return (
     <div
       onClick={handleClick}
-      className={` ${
-        href === 'disabled' && 'cursor-no-drop'
-      } font-serif  mt-1 flex gap-5 text-black w-full items-center px-4 p-3 hover:bg-gray-100 rounded-lg cursor-pointer`}
+      className="font-serif  mt-1 flex gap-5 text-black w-full items-center px-4 p-3 hover:bg-gray-100 rounded-lg cursor-pointer"
     >
       <Icon className="w-15 h-8" />
       <p className="hidden md:inline-flex">{label}</p>

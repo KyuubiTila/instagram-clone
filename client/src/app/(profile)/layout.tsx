@@ -1,5 +1,4 @@
 import { SideBar } from '@/components/sidebar/Sidebar';
-import Widgets from '@/components/widget/Widget';
 
 export default function RootLayout({
   children,
