@@ -11,8 +11,8 @@ import HeartSVG from '../svgComps/HeartSVG';
 import NewPostSVG from '../svgComps/NewPostSVG';
 import ProfilePicSVG from '../svgComps/ProfilePicSVG';
 import ThreadSVG from '../svgComps/ThreadSVG';
-import MoreSVG from '../svgComps/MoreSVG';
 import Link from 'next/link';
+import PopOver from './PopOver';
 
 interface MenuItemData {
   icon: React.ComponentType<any>;
@@ -91,10 +91,7 @@ export function SideBar(): JSX.Element {
             <ThreadSVG />
             <p className="hidden md:inline-flex ">Threads</p>
           </div>
-          <div className="font-serif  mt-1 flex gap-5 text-black w-full items-center px-4 p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-            <MoreSVG />
-            <p className="hidden md:inline-flex ">More</p>
-          </div>
+          <PopOver />
         </div>
       </div>
     </div>

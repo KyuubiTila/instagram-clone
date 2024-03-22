@@ -24,7 +24,10 @@ const WidgetProfile = () => {
               kyuubiTila
             </p>
           </div>
-          <Button className="text-black text-xs bg-gray-300 ml-auto hover:bg-gray-400 hover:text-white">
+          <Button
+            disableElevation
+            className="text-black text-xs bg-gray-300 ml-auto hover:bg-gray-400 hover:text-white"
+          >
             Switch Account
           </Button>
         </div>

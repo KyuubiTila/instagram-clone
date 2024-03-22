@@ -4,6 +4,7 @@ import StoryModal from '@/components/modals/StoryModal';
 import FollowingSVG from '@/components/svgComps/FollowingSVG';
 import LinkSVG from '@/components/svgComps/LinkSVG';
 import MoreSVG from '@/components/svgComps/MoreSVG';
+import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -39,19 +40,19 @@ const Profile = () => {
             <div className="flex ">
               <Link
                 href="/profile/edit-profile"
-                className=" bg-gray-300 flex mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl"
+                className=" bg-gray-300 flex mr-2 text-black hover:bg-gray-400 hover:text-white  px-4  rounded-xl"
               >
-                <button>Edit Profile</button>
+                <Button className="text-black">Edit Profile</Button>
               </Link>
-              <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
+              <Button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
                 Message
-              </button>
-              <button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
+              </Button>
+              <Button className=" bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl">
                 <FollowingSVG />
-              </button>
+              </Button>
               <label
                 htmlFor="my_modal_7"
-                className="btn bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4 border border-gray-400 rounded-xl"
+                className="btn bg-gray-300 mr-2 text-black hover:bg-gray-400 hover:text-white  px-4  rounded-xl"
               >
                 <MoreSVG />
               </label>
@@ -191,7 +192,7 @@ const Profile = () => {
       <div className="flex w-full justify-center mr-16">
         <div className="flex text-gray-700 text-center py-4 mx-6 ">
           <div className="flex ">
-            <button
+            <Button
               className="border-transparent text-gray-800 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
               aria-label="Notifications"
             >
@@ -206,7 +207,7 @@ const Profile = () => {
               >
                 <path d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
               </svg>
-            </button>
+            </Button>
           </div>
           <div className="flex  ml-2 mt-1">
             <h3 className="text-sm font-bold text-gray-800 mr-2">POSTS</h3>
@@ -215,7 +216,7 @@ const Profile = () => {
 
         <div className="flex text-gray-700 text-center py-4 mx-6">
           <div className="flex ">
-            <button
+            <Button
               className="border-transparent text-gray-600 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
               aria-label="Notifications"
             >
@@ -230,7 +231,7 @@ const Profile = () => {
               >
                 <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
               </svg>
-            </button>
+            </Button>
           </div>
           <div className="flex  ml-2 mt-1">
             <h3 className="text-sm font-medium text-gray-700 mr-2">SAVED</h3>
@@ -239,7 +240,7 @@ const Profile = () => {
 
         <div className="flex text-gray-700 text-center py-4 mx-6">
           <div className="flex ">
-            <button
+            <Button
               className="border-transparent text-gray-600 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600"
               aria-label="Notifications"
             >
@@ -254,7 +255,7 @@ const Profile = () => {
               >
                 <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
               </svg>
-            </button>
+            </Button>
           </div>
           <div className="flex  ml-2 mt-1">
             <h3 className="text-sm font-medium text-gray-700 mr-2">TAGGED</h3>
