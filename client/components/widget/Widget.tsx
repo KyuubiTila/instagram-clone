@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import WidgetProfile from './WidgetProfile';
+import React from 'react';
 
 interface User {
   login: {
