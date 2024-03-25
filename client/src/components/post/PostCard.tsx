@@ -9,6 +9,7 @@ import { Avatar } from '@mui/material';
 import EmojiSVG from '../svgComps/EmojiSVG';
 import Image from 'next/image';
 import SendSVG from '../svgComps/SendSVG';
+import LikedByModal from '../modals/LikedByModal';
 
 const PostCard = () => {
   const openCommentModal = () => {
@@ -19,9 +20,18 @@ const PostCard = () => {
       modalCheckbox.checked = !modalCheckbox.checked;
     }
   };
+  const openLikedByModal = () => {
+    const modalCheckbox = document.getElementById(
+      'likedby'
+    ) as HTMLInputElement;
+    if (modalCheckbox) {
+      modalCheckbox.checked = !modalCheckbox.checked;
+    }
+  };
   return (
     <div className="flex justify-center p-4">
       <CommentModal />
+      <LikedByModal />
       <div className="bg-white border rounded-xl max-w-md">
         {/* Card header  */}
         <div className="flex items-center px-4 py-3">
@@ -82,10 +92,19 @@ const PostCard = () => {
             />
           </div>
           <span className="text-sm">
-            {' '}
             Liked by
-            <span className="font-semibold"> Pixels</span> and
-            <span className="font-semibold"> 20 others</span>
+            <span className="font-semibold hover:cursor-pointer">
+              {' '}
+              Pixels
+            </span>{' '}
+            and
+            <span
+              className="font-semibold hover:cursor-pointer"
+              onClick={openLikedByModal}
+            >
+              {' '}
+              20 others
+            </span>
           </span>
         </div>
         {/* Comment Bar */}

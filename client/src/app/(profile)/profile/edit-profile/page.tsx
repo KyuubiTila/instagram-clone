@@ -1,5 +1,5 @@
 import React from 'react';
-import EditProfile from '../../../../../components/forms/EditProfile';
+import EditProfile from '@/components/forms/EditProfile';
 
 const Page = () => {
   return <EditProfile />;

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import WidgetProfile from './WidgetProfile';
 import React from 'react';
+import Image from 'next/image';
 
 interface User {
   login: {
@@ -55,7 +56,7 @@ const Widgets = (): JSX.Element => {
               className="flex items-center justify-start gap-6 px-4 py-2 border border-black-100 rounded-xl hover:bg-gray-100 cursor-pointer"
             >
               <div>
-                <img
+                <Image
                   className="rounded-full"
                   src={user.picture.large}
                   width={50}

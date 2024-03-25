@@ -28,7 +28,7 @@ const PopOver = () => {
       <div aria-describedby={id} onClick={handleClick}>
         <div className="font-serif  mt-1 flex gap-5 text-black w-full items-center px-4 p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
           <MoreSVG />
-          <p className="hidden md:inline-flex ">More</p>
+          <span className="hidden md:inline-flex">More</span>
         </div>
       </div>
       <Popover
@@ -49,52 +49,58 @@ const PopOver = () => {
         }}
       >
         <Typography
+          component="div"
           className="hover:cursor-pointer p-4  font-serif mt-2 text-black px-4 hover:bg-gray-100 rounded-lg "
           sx={{ p: 2 }}
         >
           <div className="flex gap-5">
             <SettingSVG />
-            <p>Settings</p>
+            <span>Settings</span>
           </div>
         </Typography>
         <Typography
+          component="div"
           className="hover:cursor-pointer p-4  font-serif  text-black px-4 hover:bg-gray-100 rounded-lg "
           sx={{ p: 2 }}
         >
           <div className="flex gap-5">
             <ActivitySVG />
-            <p>Your activity</p>
+            <span>Your activity</span>
           </div>
         </Typography>
         <Typography
+          component="div"
           className="hover:cursor-pointer p-4  font-serif  text-black px-4 hover:bg-gray-100 rounded-lg "
           sx={{ p: 2 }}
         >
           <div className="flex gap-5">
             <BookmarkSVG />
-            <p>Saved</p>
+            <span>Saved</span>
           </div>
         </Typography>
         <Typography
+          component="div"
           className="hover:cursor-pointer p-4  font-serif  text-black px-4 hover:bg-gray-100 rounded-lg "
           sx={{ p: 2 }}
         >
           <div className="flex gap-5">
             <SunSVG />
-            <p>Switch appearance</p>
+            <span>Switch appearance</span>
           </div>
         </Typography>
         <Typography
+          component="div"
           className="hover:cursor-pointer p-4 font-serif  text-black px-4 hover:bg-gray-100 rounded-lg mb-2"
           sx={{ p: 2 }}
         >
           <div className="flex gap-5">
             <ReportProblemSVG />
-            <p>Report a problem</p>
+            <span>Report a problem</span>
           </div>
         </Typography>
         <hr className="border-b-4  border-gray-100" />
         <Typography
+          component="div"
           className="hover:cursor-pointer p-4  font-serif mt-2 text-black px-4 hover:bg-gray-100 rounded-lg mb-2"
           sx={{ p: 2 }}
         >
@@ -103,6 +109,7 @@ const PopOver = () => {
         <hr className="border-gray-100" />
         <Link href="/signin">
           <Typography
+            component="div"
             className="hover:cursor-pointer p-4  font-serif mt-2 text-black px-4 hover:bg-gray-100 rounded-lg"
             sx={{ p: 2 }}
           >

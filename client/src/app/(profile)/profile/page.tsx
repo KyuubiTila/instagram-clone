@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import IndividualPostCard from '@/components/post/IndividualPostCard';
 
 const Profile = () => {
   const openStoryModal = () => {
@@ -258,34 +259,13 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="flex">
-        <div className="text-center px-1 py-2 ">
-          <Image
-            height={200}
-            width={200}
-            alt={'www'}
-            className="w-full border"
-            src="/x-big.jpg"
-          />
-        </div>
-        <div className="text-center px-1 py-2">
-          <Image
-            height={200}
-            width={200}
-            alt={'www'}
-            className="w-full border"
-            src="/x-big.jpg"
-          />
-        </div>
-        <div className="text-center px-1 py-2">
-          <Image
-            height={200}
-            width={200}
-            alt={'www'}
-            className="w-full border"
-            src="/x-big.jpg"
-          />
-        </div>
+      <div className="grid grid-cols-3 gap-2">
+        <IndividualPostCard />
+        <IndividualPostCard />
+        <IndividualPostCard />
+        <IndividualPostCard />
+        <IndividualPostCard />
+        <IndividualPostCard />
       </div>
     </div>
   );
