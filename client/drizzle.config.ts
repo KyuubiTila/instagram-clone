@@ -1,5 +1,3 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Client } from 'pg';
 import type { Config } from 'drizzle-kit';
 import 'dotenv/config';
 
@@ -14,7 +12,7 @@ interface ConnectionConfig {
 export const connectionConfig: ConnectionConfig = {
   host: process.env.HOST!,
   user: process.env.USERNAME!,
-  port: parseInt(process.env.PORT!),
+  port: 5432,
   password: process.env.PASSWORD!,
   database: process.env.DATABASE!,
 };
@@ -27,12 +25,3 @@ export default {
     ...connectionConfig,
   },
 } satisfies Config;
-
-export async function establishConnection() {
-  const client = new Client(connectionConfig);
-  await client.connect();
-  return drizzle(client);
-}
-
-// Call the function to establish the connection
-export const db = establishConnection();

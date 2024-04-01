@@ -1,13 +1,5 @@
-import { connectionConfig } from './../../drizzle.config';
-import { Pool } from 'pg';
-import { drizzle } from 'drizzle-orm/node-postgres';
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
-
-const pool = new Pool({
-  ...connectionConfig,
-});
-
-const db = drizzle(pool);
+import { db } from '.';
 
 async function main() {
   console.log('migration started...');
