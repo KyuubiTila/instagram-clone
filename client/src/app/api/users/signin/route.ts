@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { signup } from './service/signup.service';
+import { signInUser } from './service/signin.service';
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
-    const signupCredentials = await request.json();
+    const signInCredentialDto = await request.json();
 
-    const savedUser = await signup(signupCredentials);
+    const user = await signInUser(signInCredentialDto);
 
     return new NextResponse(
       JSON.stringify({
-        message: 'User registered successfully',
+        message: 'User signed in successfully',
         success: true,
-        savedUser,
+        token: user,
       })
     );
   } catch (error: any) {
@@ -20,7 +20,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         success: false,
         error: error.message,
       }),
-      { status: 500 }
+      { status: 401 }
     );
   }
 }
