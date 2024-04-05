@@ -1,22 +1,17 @@
-// registration.service.ts
 import bcryptjs from 'bcrypt';
 import { users } from '../../../../../db/schema';
 import { eq } from 'drizzle-orm';
 import { db } from '../../../../../db';
 import { SignUpCredentialDto } from '../dto/signup-credentials.dto';
-import { NextResponse } from 'next/server';
 
 export async function signup(
   signupCredentials: SignUpCredentialDto
 ): Promise<boolean> {
-  const { username, email, password } = signupCredentials;
-
-  if (!username || !email || !password) {
-    throw new NextResponse(JSON.stringify({ error: 'Missing input field' }), {
-      status: 400,
-    });
-  }
   try {
+    const { username, email, password } = signupCredentials;
+    if (!username || !email || !password) {
+      throw new Error('Missing input field');
+    }
     const hashedPassword = await bcryptjs.hash(password, 10);
 
     const [existingUser] = await db
