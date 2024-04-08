@@ -1,14 +1,15 @@
 import { eq } from 'drizzle-orm';
 import { NextRequest } from 'next/server';
-import ProfileCredentialDto from '../dto/updateProfile-credentials.dto';
 import { profiles } from '../../../../db/schema';
 import { db } from '../../../../db';
 import verifyToken from '../../utils/verifyToken';
 import UpdateProfileCredentialDto from '../dto/updateProfile-credentials.dto';
+import ProfileCredentialDto from '../dto/profile-credentials.dto';
 
 export async function createProfile(
   profileCredentialDto: ProfileCredentialDto,
-  req: NextRequest
+  req: NextRequest,
+  filename: string
 ): Promise<boolean> {
   try {
     const { id } = await verifyToken(req);
@@ -19,11 +20,20 @@ export async function createProfile(
       throw new Error('Missing field, please fill all inputs');
     }
 
+    const [isProfileExisting] = await db
+      .select()
+      .from(profiles)
+      .where(eq(profiles.userId, id));
+
+    if (isProfileExisting) {
+      throw new Error('Profile already exists');
+    }
+
     await db.insert(profiles).values({
       bio,
       website,
       gender,
-      photo,
+      photo: filename,
       userId: id,
     });
 

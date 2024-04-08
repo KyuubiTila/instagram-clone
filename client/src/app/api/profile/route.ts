@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createProfile, updateProfile } from './service/profile.service';
+import convertFormDataToProfileCredentialDto from '../utils/formConvert';
+import { upload } from '../../../../config/imageConverterConfig';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const profileCredentialDto = await req.json();
-    await createProfile(profileCredentialDto, req);
+    const formData = await req.formData();
+    const filename = await upload(formData);
 
+    const profileCredentialDto =
+      convertFormDataToProfileCredentialDto(formData);
+
+    await createProfile(profileCredentialDto, req, filename);
     return new NextResponse(
       JSON.stringify({
         message: 'Profile created successfully',
@@ -26,6 +32,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
     const upadateProfileCredentialDto = await req.json();
+
     await updateProfile(upadateProfileCredentialDto, req);
 
     return new NextResponse(
