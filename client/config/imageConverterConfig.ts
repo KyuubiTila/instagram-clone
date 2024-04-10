@@ -10,7 +10,7 @@ export const config = {
 };
 
 export async function upload(formData: FormData): Promise<string> {
-  const file = formData.get('photo') as Blob | null;
+  const file = formData.get('image') as Blob | null;
   if (!file) {
     throw new Error('File blob is required.');
   }

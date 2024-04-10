@@ -1,7 +1,7 @@
 import bcryptjs from 'bcrypt';
-import { users } from '../../../../../db/schema';
+import { users } from '@/db/schema';
 import { eq } from 'drizzle-orm';
-import { db } from '../../../../../db';
+import { db } from '@/db';
 import { SignUpCredentialDto } from '../dto/signup-credentials.dto';
 
 export async function signup(

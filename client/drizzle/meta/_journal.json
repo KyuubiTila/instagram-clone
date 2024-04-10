@@ -29,6 +29,20 @@
       "when": 1711999280451,
       "tag": "0003_lean_whistler",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1712666291679,
+      "tag": "0004_fantastic_havok",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1712681575342,
+      "tag": "0005_greedy_kitty_pryde",
+      "breakpoints": true
     }
   ]
 }

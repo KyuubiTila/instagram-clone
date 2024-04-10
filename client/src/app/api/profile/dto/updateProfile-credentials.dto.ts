@@ -7,7 +7,7 @@ export default class UpdateProfileCredentialDto {
 
   gender?: string;
 
-  photo?: string;
+  image?: string;
 
   followersCount!: number;
 

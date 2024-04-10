@@ -1,7 +1,8 @@
 import bcryptjs from 'bcrypt';
 import { SignInCredentialDto } from '../dto/signin-credentials.dto';
-import { users } from '../../../../../db/schema';
-import { db } from '../../../../../db';
+import { users } from '@/db/schema';
+import { db } from '@/db';
+
 import { eq } from 'drizzle-orm';
 import generateToken from '../../../utils/generateToken';
 

@@ -30,14 +30,14 @@ export const profiles = pgTable('profiles', {
   bio: text('bio').default(''),
   website: text('website').default(''),
   gender: text('gender').default(''),
-  photo: text('photo').default(''),
+  image: text('image').default(''),
   followersCount: integer('followersCount').default(0),
   followingCount: integer('followingCount').default(0),
   createdAt: timestamp('createdAt').defaultNow().notNull(),
   updatedAt: timestamp('updatedAt').defaultNow().notNull(),
   userId: integer('userId')
     .notNull()
-    .references(() => users.id),
+    .references(() => users.id, { onDelete: 'cascade' }),
 });
 
 export const posts = pgTable('posts', {
@@ -48,7 +48,7 @@ export const posts = pgTable('posts', {
   updatedAt: timestamp('updatedAt').defaultNow().notNull(),
   author: integer('authorId')
     .notNull()
-    .references(() => users.id),
+    .references(() => users.id, { onDelete: 'cascade' }),
 });
 
 export const postRelations = relations(posts, ({ one }) => ({

@@ -7,7 +7,7 @@ export default class ProfileCredentialDto {
 
   gender!: string;
 
-  photo!: string;
+  image!: string;
 
   followersCount!: number;
 
