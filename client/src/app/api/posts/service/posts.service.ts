@@ -36,23 +36,23 @@ export async function updatePost(
   updateProfileCredentialDto: UpdatePostCredentialDto,
   req: NextRequest,
   filename: string,
-  id: number
+  postId: number
 ): Promise<boolean> {
   try {
-    const { id: userId } = verifyToken(req);
+    const { id } = verifyToken(req);
 
     const { text, updatedAt } = updateProfileCredentialDto;
 
     const [isPostExisting] = await db
       .select()
       .from(posts)
-      .where(eq(posts.id, id));
+      .where(eq(posts.id, postId));
 
     if (!isPostExisting) {
       throw new Error('post with the id does not exist');
     }
 
-    if (isPostExisting.author !== userId) {
+    if (isPostExisting.author !== id) {
       throw new Error('You cannot update this tweet, you did not create it');
     }
 
@@ -63,7 +63,7 @@ export async function updatePost(
         image: filename,
         updatedAt,
       })
-      .where(eq(posts.id, id));
+      .where(eq(posts.id, postId));
 
     return true;
   } catch (error) {
@@ -73,25 +73,25 @@ export async function updatePost(
 
 export async function deletePost(
   req: NextRequest,
-  id: number
+  postId: number
 ): Promise<boolean> {
   try {
-    const { id: userId } = await verifyToken(req);
+    const { id } = await verifyToken(req);
 
     const [isPostExisting] = await db
       .select()
       .from(posts)
-      .where(eq(posts.id, id));
+      .where(eq(posts.id, postId));
 
     if (!isPostExisting) {
       throw new Error('post with this id does nto exist');
     }
 
-    if (isPostExisting.author !== userId) {
+    if (isPostExisting.author !== id) {
       throw new Error('you can not delete this post, you did not create it');
     }
 
-    await db.delete(posts).where(eq(posts.id, id));
+    await db.delete(posts).where(eq(posts.id, postId));
 
     return true;
   } catch (error) {
@@ -99,20 +99,38 @@ export async function deletePost(
   }
 }
 
-export async function getIndividualPost(req: NextRequest, id: number) {
+export async function getIndividualPost(req: NextRequest, postId: number) {
   try {
     await verifyToken(req);
 
-    const [isPostExisting] = await db
-      .select()
-      .from(posts)
-      .where(eq(posts.id, id));
+    const isPostExisting = await db.query.posts.findFirst({
+      where: eq(posts.id, postId),
+      with: {
+        author: true,
+      },
+    });
 
     if (!isPostExisting) {
       throw new Error('post with this id does not exist');
     }
 
     return isPostExisting;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getAllPosts(req: NextRequest) {
+  try {
+    await verifyToken(req);
+
+    const arePostsExisting = await db.query.posts.findMany({
+      with: {
+        author: true,
+      },
+    });
+
+    return arePostsExisting;
   } catch (error) {
     throw error;
   }

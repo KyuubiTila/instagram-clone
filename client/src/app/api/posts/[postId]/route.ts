@@ -9,17 +9,17 @@ import {
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { postId: number } }
 ): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const { postId } = params;
     const formData = await req.formData();
     const filename = await upload(formData);
 
     const updateProfileCredentialDto =
       convertFormDataToUpdatePostCredentialDto(formData);
 
-    await updatePost(updateProfileCredentialDto, req, filename, id);
+    await updatePost(updateProfileCredentialDto, req, filename, postId);
     return new NextResponse(
       JSON.stringify({
         message: 'Post updated successfully',
@@ -39,12 +39,12 @@ export async function PATCH(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { postId: number } }
 ): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const { postId } = params;
 
-    await deletePost(req, id);
+    await deletePost(req, postId);
     return new NextResponse(
       JSON.stringify({
         message: 'Post deleted successfully',
@@ -64,12 +64,12 @@ export async function DELETE(
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { postId: number } }
 ): Promise<NextResponse> {
   try {
-    const { id } = params;
+    const { postId } = params;
 
-    const post = await getIndividualPost(req, id);
+    const post = await getIndividualPost(req, postId);
     return new NextResponse(
       JSON.stringify({
         message: 'Post fetched successfully',

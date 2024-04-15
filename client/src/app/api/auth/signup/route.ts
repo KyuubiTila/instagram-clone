@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { signup } from './service/signup.service';
 
-export async function POST(request: NextRequest): Promise<NextResponse> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const signupCredentials = await request.json();
+    const signupCredentials = await req.json();
 
     const savedUser = await signup(signupCredentials);
 

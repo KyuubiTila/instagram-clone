@@ -9,13 +9,12 @@ import generateToken from '../../../utils/generateToken';
 export async function signInUser(
   signInCredentialDto: SignInCredentialDto
 ): Promise<string> {
-  const { email, password } = signInCredentialDto;
-
-  if (!email || !password) {
-    throw new Error('Missing email or password');
-  }
-
   try {
+    const { email, password } = signInCredentialDto;
+
+    if (!email || !password) {
+      throw new Error('Missing email or password');
+    }
     const [user] = await db.select().from(users).where(eq(users.email, email));
 
     if (!user) {

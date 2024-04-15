@@ -43,6 +43,20 @@
       "when": 1712681575342,
       "tag": "0005_greedy_kitty_pryde",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1712774093827,
+      "tag": "0006_broken_randall_flagg",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1712774254454,
+      "tag": "0007_loose_punisher",
+      "breakpoints": true
     }
   ]
 }

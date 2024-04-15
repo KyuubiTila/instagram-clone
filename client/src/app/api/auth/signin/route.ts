@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { signInUser } from './service/signin.service';
 
-export async function POST(request: NextRequest): Promise<NextResponse> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const signInCredentialDto = await request.json();
+    const signInCredentialDto = await req.json();
 
     const user = await signInUser(signInCredentialDto);
 
